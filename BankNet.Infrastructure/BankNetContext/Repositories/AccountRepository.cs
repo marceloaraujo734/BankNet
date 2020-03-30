@@ -19,7 +19,7 @@ namespace BankNet.Infrastructure.BankNetContext.Repositories
         {
             var sql = $"SELECT id, clientId, accountNumber, balance FROM account WHERE accountNumber = '{accountNumber}';";
 
-            return context.connection.QueryFirstOrDefault<AccountQueryResult>(sql);
+            return context.Connection.QueryFirstOrDefault<AccountQueryResult>(sql);
         }
 
         public async Task UpdateBalance(AccountQueryResult account)
@@ -28,7 +28,7 @@ namespace BankNet.Infrastructure.BankNetContext.Repositories
             {
                 var sql = $"UPDATE account SET balance = {account.Balance.ToString(CultureInfo.InvariantCulture).Replace(",", ".")} WHERE id = '{account.Id}';";
 
-                await context.connection.ExecuteAsync(sql);
+                await context.Connection.ExecuteAsync(sql);
             }
             catch (Exception ex)
             {

@@ -8,17 +8,17 @@ namespace BankNet.Infrastructure.BankNetContext.DataContexts
     public class BankNetDataContext : IDisposable
     {
 
-        public MySqlConnection connection { get; set; }
+        public MySqlConnection Connection { get; set; }
 
         public BankNetDataContext()
         {
-            connection = new MySqlConnection(Settings.ConnectionString);
-            connection.Open();
+            Connection = new MySqlConnection(Settings.ConnectionString);
+            Connection.Open();
         }
 
         public void Dispose()
         {
-            if (connection.State != ConnectionState.Closed) connection.Close();
+            if (Connection.State != ConnectionState.Closed) Connection.Close();
         }
     }
 }

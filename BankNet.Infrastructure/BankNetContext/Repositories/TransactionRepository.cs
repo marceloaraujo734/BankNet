@@ -20,7 +20,7 @@ namespace BankNet.Infrastructure.BankNetContext.Repositories
         public async Task<IEnumerable<ListTransactionQueryResult>> GetAll()
         {
             const string sql = "SELECT id, accountId, typeTransaction, typeMovement, dateTransaction, value FROM transaction;";
-            return await context.connection.QueryAsync<ListTransactionQueryResult>(sql);
+            return await context.Connection.QueryAsync<ListTransactionQueryResult>(sql);
         }
 
         public async Task CreateTransaction(Transaction transaction)
@@ -30,7 +30,7 @@ namespace BankNet.Infrastructure.BankNetContext.Repositories
                                 {transaction.TypeMovement.GetHashCode()}, '{transaction.DateTransaction:yyyy-MM-dd HH:mm:ss}',
                                 {transaction.Value.ToString(CultureInfo.InvariantCulture).Replace(",", ".")});";
 
-            await context.connection.ExecuteAsync(sql);
+            await context.Connection.ExecuteAsync(sql);
 
         }
 

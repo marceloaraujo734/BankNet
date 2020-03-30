@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 using BankNet.Domain.BankContext.Entities;
 using BankNet.Domain.BankContext.Queries;
@@ -16,7 +17,7 @@ namespace BankNet.Tests.Fakes
 
         public async Task<IEnumerable<ListTransactionQueryResult>> GetAll()
         {
-            throw new NotImplementedException();
+            return await Task.FromResult(default(IEnumerable<ListTransactionQueryResult>));
         }
     }
 }

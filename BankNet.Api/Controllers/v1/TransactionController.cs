@@ -12,7 +12,7 @@ namespace BankNet.Api.Controllers.v1
     /// <summary>
     /// 
     /// </summary>
-    // [Authorize]
+    [Authorize]
     [Route("api/v1/[controller]")]
     [ApiController]
     public class TransactionController : ControllerBase
