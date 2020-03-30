@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BankNet.Api</name>
+    </assembly>
+    <members>
+        <member name="T:BankNet.Api.Controllers.v1.TransactionController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BankNet.Api.Controllers.v1.TransactionController.#ctor(BankNet.Domain.BankContext.Repositories.ITransactionRepository,BankNet.Domain.BankContext.Handlers.TransactionHandler)">
+            <summary>
+            
+            </summary>
+            <param name="repository"></param>
+            <param name="handler"></param>
+        </member>
+        <member name="M:BankNet.Api.Controllers.v1.TransactionController.Post(BankNet.Domain.BankContext.Commands.TransactionCommands.Request.PostTransactionCommand)">
+             <summary>
+             Realiza a transferência entre contas
+             </summary>
+             <remarks>
+             Realiza a transferência de acordo com os valores informados.
+            
+                 Request:
+                 POST /v1/transfer
+                 {
+                    "destinyaccount": "1234567",
+                    "originaccount": "7654321",
+                    "dateTransaction": "2020-03-30T01:47:51.630Z", 
+                    "valuetransaction": 10.50
+                 }
+             
+                 Response:
+                 {
+                    "success": true,
+                    "data": "Transferência realizado com sucesso!"
+                 }
+                 
+            
+             </remarks>
+             <response code="200">Transferência realizado com sucesso!</response>
+             <param name="command">Dados da operação de transferência bancária.</param>
+             <returns>Retorna mensagem de sucessso</returns>
+        </member>
+        <member name="M:BankNet.Api.Controllers.v1.TransactionController.GetAll">
+            <summary>
+            Obtém todas as transações
+            </summary>
+            <returns>Retorna todas as transações</returns>
+        </member>
+        <member name="T:BankNet.Api.Options.JwtSettings">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BankNet.Api.Options.JwtSettings.Secret">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BankNet.Api.Options.SwaggerOptions">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

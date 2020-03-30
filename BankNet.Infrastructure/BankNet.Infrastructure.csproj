@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Scripts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.30" />
+    <PackageReference Include="MySqlConnector" Version="0.63.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BankNet.Application\BankNet.Domain.csproj" />
+    <ProjectReference Include="..\BankNet.Shared\BankNet.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

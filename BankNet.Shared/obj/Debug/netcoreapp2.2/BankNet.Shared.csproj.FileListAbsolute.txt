@@ -1,0 +1,8 @@
+C:\Projects\BankNet\BankNet.Shared\bin\Debug\netcoreapp2.2\BankNet.Shared.deps.json
+C:\Projects\BankNet\BankNet.Shared\bin\Debug\netcoreapp2.2\BankNet.Shared.dll
+C:\Projects\BankNet\BankNet.Shared\bin\Debug\netcoreapp2.2\BankNet.Shared.pdb
+C:\Projects\BankNet\BankNet.Shared\obj\Debug\netcoreapp2.2\BankNet.Shared.csproj.CoreCompileInputs.cache
+C:\Projects\BankNet\BankNet.Shared\obj\Debug\netcoreapp2.2\BankNet.Shared.AssemblyInfoInputs.cache
+C:\Projects\BankNet\BankNet.Shared\obj\Debug\netcoreapp2.2\BankNet.Shared.AssemblyInfo.cs
+C:\Projects\BankNet\BankNet.Shared\obj\Debug\netcoreapp2.2\BankNet.Shared.dll
+C:\Projects\BankNet\BankNet.Shared\obj\Debug\netcoreapp2.2\BankNet.Shared.pdb
