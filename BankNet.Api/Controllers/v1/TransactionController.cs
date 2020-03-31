@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using BankNet.Domain.BankContext.Commands.TransactionCommands.Request;
 using BankNet.Domain.BankContext.Commands.TransactionCommands.Response;
@@ -34,6 +35,28 @@ namespace BankNet.Api.Controllers.v1
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("Withdraw")]
+        [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Post))]
+        public async Task<ICommandResult> WithdrawAsync([FromBody]PostTransactionCommand command)
+            => await Task.FromResult(default(ICommandResult));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("Deposit")]
+        [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Post))]
+        public async Task<ICommandResult> DepositAsync([FromBody]PostTransactionCommand command)
+            => await Task.FromResult(default(ICommandResult));
+
+        /// <summary>
         /// Realiza a transferência entre contas
         /// </summary>
         /// <remarks>
@@ -62,7 +85,7 @@ namespace BankNet.Api.Controllers.v1
         [HttpPost]
         [Route("Transfer")]
         [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Post))]
-        public async Task<ICommandResult> Post([FromBody]PostTransactionCommand command)
+        public async Task<ICommandResult> TransferAsync([FromBody]PostTransactionCommand command)
             => await handler.Handle(command);
 
         /// <summary>
