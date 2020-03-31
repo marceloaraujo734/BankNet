@@ -2,8 +2,6 @@
 using System;
 using BankNet.Domain.BankContext.Commands.TransactionCommands.Request;
 using BankNet.Domain.BankContext.Handlers;
-using BankNet.Infrastructure.BankNetContext.DataContexts;
-using BankNet.Infrastructure.BankNetContext.Repositories;
 using BankNet.Tests.Fakes;
 using Xunit;
 

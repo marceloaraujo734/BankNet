@@ -1,7 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using BankNet.Domain.BankContext.Commands.TransactionCommands.Request;
 using BankNet.Domain.BankContext.Commands.TransactionCommands.Response;
 using BankNet.Domain.BankContext.Handlers;
+using BankNet.Domain.BankContext.Queries;
 using BankNet.Domain.BankContext.Repositories;
 using BankNet.Shared.Commands;
 using Microsoft.AspNetCore.Authorization;
@@ -12,7 +14,7 @@ namespace BankNet.Api.Controllers.v1
     /// <summary>
     /// 
     /// </summary>
-    [Authorize]
+    //[Authorize]
     [Route("api/v1/[controller]")]
     [ApiController]
     public class TransactionController : ControllerBase
@@ -61,10 +63,7 @@ namespace BankNet.Api.Controllers.v1
         [Route("Transfer")]
         [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Post))]
         public async Task<ICommandResult> Post([FromBody]PostTransactionCommand command)
-        {
-            var result = (PostTransactionCommandResult) await handler.Handle(command);
-            return result;
-        }
+            => await handler.Handle(command);
 
         /// <summary>
         /// Obtém todas as transações
@@ -73,13 +72,8 @@ namespace BankNet.Api.Controllers.v1
         [HttpGet]
         [Route("GetAll")]
         [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Get))]
-        public IActionResult GetAll()
-        {
-            
-            var result = repository.GetAll();
-
-            return new OkObjectResult(result);
-        } 
+        public async Task<IEnumerable<ListTransactionQueryResult>> GetAll()
+            => await repository.GetAll(); 
 
     }
 }

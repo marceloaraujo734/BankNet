@@ -5,11 +5,15 @@ namespace BankNet.Domain.BankContext.Queries
 {
     public class ListTransactionQueryResult
     {
-        public Guid TransactionId { get; set; }
+        public Guid Id { get; set; }
 
-        public TypeTransaction Type { get; set; }
+        public Guid AccountId { get; set; }
 
-        public string Account { get; set; }
+        public TypeTransaction TypeTransaction { get; set; }
+
+        public TypeMovement TypeMovement { get; set; }
+
+        public DateTime DateTransaction { get; set; }
 
         public decimal Value { get; set; }
 

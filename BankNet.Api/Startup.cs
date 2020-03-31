@@ -40,6 +40,7 @@ namespace BankNet.Api
             services.AddScoped<BankNetDataContext, BankNetDataContext>();
             services.AddTransient<ITransactionRepository, TransactionRepository>();
             services.AddTransient<TransactionHandler, TransactionHandler>();
+            services.AddTransient<IAccountRepository, AccountRepository>();
 
             services.AddAuthentication(opt =>
             {
@@ -91,6 +92,8 @@ namespace BankNet.Api
 
             });
 
+            services.AddCors();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -106,8 +109,16 @@ namespace BankNet.Api
                 app.UseHsts();
             }
 
-            app.UseAuthentication();
-            
+            app.UseCors(builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials()
+                // .WithExposedHeaders(AdministrationControllerBase.ExposedHeaders)
+                );
+
+            // app.UseAuthentication();
+
             var swaggerOptions = new SwaggerOptions();
             Configuration.GetSection(nameof(SwaggerOptions)).Bind(swaggerOptions);
 
